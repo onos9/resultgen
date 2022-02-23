@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import "./styles/sb-admin-2.min.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./components/Account/Login";
+import Admin from "./components/Admin/Admin";
+import { AccountRoute } from "./common/components/AccountRoute";
+import Notifications from "./common/components/Notification";
+import Home from "./components/Home/Home";
+import LeftMenu from "./components/LeftMenu/LeftMenu";
+import Orders from "./components/Orders/Orders";
+import Result from "./components/Result/Results";
+import TopMenu from "./components/TopMenu/TopMenu";
+import Users from "./components/Users/Users";
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App" id="wrapper">
+        <Notifications />
+        <LeftMenu />
+        <div id="content-wrapper" className="d-flex flex-column">
+          <div id="content">
+            <TopMenu />
+            <div className="container-fluid">
+              <Routes>
+                <Route path="/" element={<Admin />} >
+                  <Route element={<AccountRoute />} >
+                    <Route path={`/users`} element={<Users />} />
+                    <Route path={`/results`} element={<Result />} />
+                    <Route path={`/orders`} element={<Orders />} />
+                  </Route>
+                  <Route path={`/`} element={<Home />} />
+                </Route>
+                <Route path={`/login`} element={<Login />} />
+              </Routes>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Router >
   );
-}
+};
 
 export default App;

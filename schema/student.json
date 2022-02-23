@@ -1,0 +1,14 @@
+{
+    "students":[
+        {
+            "id": "",
+            "name": "",
+            "avatar":"",
+            "gender":"",
+            "class":"",
+            "absent":"",
+            "present":"",
+            "opened":""
+        }
+    ]
+}

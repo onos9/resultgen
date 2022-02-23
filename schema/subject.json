@@ -1,0 +1,15 @@
+{
+    "subjects":[
+        {
+            "subject":"math",
+            "name": "Mathematics",
+            "mt1":"",
+            "mt2":"",
+            "oral": "",
+            "report":"",
+            "exam":"",
+            "score":"",
+            "grade":""
+        }
+    ]
+}
